@@ -1,6 +1,6 @@
-function hello (name) {
+const hello = name => {
   return `Hello, ${name || 'Anonymous'}!`;
-}
+};
 
 
 export default hello;

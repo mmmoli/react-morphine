@@ -31,3 +31,4 @@ build
 .jshintrc
 .jshintignore
 .idea
+.DS_Store
