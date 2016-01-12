@@ -1,3 +1,6 @@
+# react-morphine
+Relieving the pain of morphing UIs in React
+
 # prod-module-boilerplate [![Circle CI](https://circleci.com/gh/cloverfield-tools/prod-module-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/cloverfield-tools/prod-module-boilerplate/tree/master)
 [![Travis-CI](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate.svg)](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/learn-javascript-courses/javascript-questions?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
