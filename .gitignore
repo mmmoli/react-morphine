@@ -30,3 +30,4 @@ build
 .validate.json
 .jshintrc
 .jshintignore
+.idea
