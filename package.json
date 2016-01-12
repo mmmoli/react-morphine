@@ -3,6 +3,23 @@
   "description": "Relieving the pain of morphing UIs.",
   "version": "0.0.1",
   "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmmoli/react-morphine.git"
+  },
+  "author": "Michele Memoli <michele@100shapes.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmmoli/react-morphine/issues"
+  },
+  "homepage": "https://github.com/mmmoli/react-morphine",
+  "keywords": [
+    "react",
+    "react-motion",
+    "svg",
+    "react-component",
+    "morph"
+  ],
   "scripts": {
     "init": "rimraf .validate.json && rimraf .jshintrc",
     "clean": "rimraf build",
