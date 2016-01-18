@@ -1,7 +1,7 @@
 {
   "name": "react-morphine",
   "description": "Relieving the pain of morphing UIs.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "build/index.js",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "build:min": "NODE_ENV=production MINIFY=1 webpack",
     "build:doc": "doctoc --github --title \"## Contents\" ./",
     "start": "webpack --watch",
-    "test": "babel-node test/index.js",
+    "test": "babel-node test/index.js | faucet",
     "cov": "npm run cov:clean && npm run cov:generate",
     "cov:clean": "rimraf coverage",
     "cov:generate": "babel-node node_modules/.bin/isparta cover --report text --report html test/index.js",
