@@ -25,10 +25,10 @@
     "clean": "rimraf build",
     "lint": "eslint source test",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production webpack && npm run build:min && npm run build:doc",
+    "build": "webpack && npm run build:min && npm run build:doc",
     "build:min": "NODE_ENV=production MINIFY=1 webpack",
     "build:doc": "doctoc --github --title \"## Contents\" ./",
-    "start": "webpack --watch",
+    "start": "NODE_ENV=development webpack --watch",
     "test": "babel-node test/index.js | faucet",
     "cov": "npm run cov:clean && npm run cov:generate",
     "cov:clean": "rimraf coverage",
@@ -53,6 +53,7 @@
     "babel-loader": "^5.3.2",
     "babel-plugin-object-assign": "^1.2.1",
     "blue-tape": "^0.1.10",
+    "css-loader": "^0.23.1",
     "dependency-check": "^2.5.0",
     "doctoc": "^0.14.2",
     "eslint": "^1.1.0",
@@ -63,8 +64,13 @@
     "node-libs-browser": "^0.5.2",
     "nsp": "^1.0.3",
     "precommit-hook": "^3.0.0",
+    "react-addons-test-utils": "^0.14.6",
     "rimraf": "^2.4.2",
+    "style-loader": "^0.13.0",
     "webpack": "^1.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-motion": "^0.3.1"
+  }
 }

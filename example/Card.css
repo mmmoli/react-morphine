@@ -1,0 +1,26 @@
+
+.Card {
+    display: flex;
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    width: 350px;
+    height: 70vh;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.Card svg {
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    top: -1px; /* fixes rendering issue in FF */
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+.Card svg path {
+    fill: #ededed;
+}

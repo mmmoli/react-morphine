@@ -1,12 +1,12 @@
 var webpack = require('webpack');
 var path = require('path');
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'production';;
 var minify = process.env.MINIFY || false;
 
 var eslintLoader = {
   test: /\.js$/,
   loaders: ['eslint'],
-  include: path.resolve('./source')
+  include: [path.resolve('./source'), path.resolve('./example')]
 };
 
 var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
@@ -17,7 +17,10 @@ var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
 module.exports = {
   devtool: 'sourcemap',
 
-  entry: './source/index.js',
+  entry: {
+    lib:'./source/index.js',
+    example:'./example/index.js'
+  },
 
   output: {
     filename: minify ? 'index.min.js' : 'index.js',
@@ -39,8 +42,13 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel?plugins=object-assign'],
-        include: path.resolve('./source')
+        loader: 'babel?plugins=object-assign',
+        include: [path.resolve('./source'), path.resolve('./example')]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css',
+        include: [path.resolve('./source'), path.resolve('./example')]
       }
     ]
   },

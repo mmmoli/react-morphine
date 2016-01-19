@@ -1,5 +1,3 @@
-const hello = name => {
-  return `Hello, ${name || 'Anonymous'}!`;
-};
+import SVGPath from './SVGPath';
 
-export default hello;
+export default SVGPath;
