@@ -37,11 +37,8 @@
     "validate": "npm run lint && npm run build && npm test",
     "validate-dev": "npm run lint && npm run build && npm test | faucet",
     "audit": "nsp check",
-    "deps": "npm run deps:missing && npm run deps:extra",
-    "deps:missing": "dependency-check package.json",
-    "deps:extra": "dependency-check package.json --extra --no-dev --ignore",
     "precheck": "npm run validate",
-    "check": "npm run audit && npm run deps && npm outdated --depth 0"
+    "check": "npm run audit && npm outdated --depth 0"
   },
   "pre-commit": [
     "lint"
@@ -54,7 +51,6 @@
     "babel-plugin-object-assign": "^1.2.1",
     "blue-tape": "^0.1.10",
     "css-loader": "^0.23.1",
-    "dependency-check": "^2.5.0",
     "doctoc": "^0.14.2",
     "eslint": "^1.1.0",
     "eslint-loader": "^1.0.0",
