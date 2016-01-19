@@ -32,3 +32,4 @@ build
 .jshintignore
 .idea
 .DS_Store
+example/bundle.js

@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'production';
+var minify = process.env.MINIFY || false;
 
 var eslintLoader = {
   test: /\.js$/,
@@ -8,17 +9,25 @@ var eslintLoader = {
   include: [path.resolve('./source'), path.resolve('./example')]
 };
 
+var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
+  sourceMap: true
+});
+
+
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'sourcemap',
 
   entry: {
-    example:'./example/index.js'
+    lib:'./source/index.js'
   },
 
   output: {
-    filename: 'bundle.js',
-    publicPath: '/example/',
-    path: path.resolve('./example')
+    path: path.join(__dirname, 'build'),
+    publicPath: 'build/',
+    filename: minify ? 'react-morphine.min.js' : 'react-morphine.js',
+    sourceMapFilename: 'react-morphine.map',
+    library: 'ReactMorphine',
+    libraryTarget: 'umd'
   },
 
   plugins: [
@@ -27,12 +36,9 @@ module.exports = {
         NODE_ENV: '"' + env + '"'
       }
     })
-  ],
+  ].concat(minify ? [uglifyPlugin] : []),
 
   module: {
-    preLoaders: env === 'development' ? [
-      eslintLoader
-    ] : [],
     loaders: [
       {
         test: /\.js$/,
@@ -44,14 +50,11 @@ module.exports = {
         loader: 'style!css',
         include: [path.resolve('./source'), path.resolve('./example')]
       }
-    ],
-    noParse: [
-      path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js')
     ]
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js']
   },
 
   stats: {

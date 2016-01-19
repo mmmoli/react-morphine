@@ -17,16 +17,23 @@
     "react",
     "react-motion",
     "svg",
+    "morph",
+    "component",
     "react-component",
-    "morph"
+    "spring",
+    "tween",
+    "motion",
+    "animation",
+    "transition",
+    "ui"
   ],
   "scripts": {
     "init": "rimraf .validate.json && rimraf .jshintrc",
     "clean": "rimraf build",
     "lint": "eslint source test",
     "prebuild": "npm run clean",
-    "build": "webpack && npm run build:min && npm run build:doc",
-    "build:min": "NODE_ENV=production MINIFY=1 webpack",
+    "build": "npm run build:min && npm run build:doc",
+    "build:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js",
     "build:doc": "doctoc --github --title \"## Contents\" ./",
     "start": "NODE_ENV=development webpack --watch",
     "test": "babel-node test/index.js | faucet",
@@ -61,12 +68,13 @@
     "nsp": "^2.2.0",
     "precommit-hook": "^3.0.0",
     "react-addons-test-utils": "^0.14.6",
+    "react-dom": "^0.14.6",
     "rimraf": "^2.4.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.11.0"
   },
-  "dependencies": {
-    "react": "^0.14.6",
+  "peerDependencies": {
+    "react": ">=0.13.2 || ^0.14",
     "react-motion": "^0.3.1"
   }
 }
