@@ -6,13 +6,14 @@ Relieving the pain of morphing UIs in React.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Clone the repo](#clone-the-repo)
-  - [Customize package.json](#customize-packagejson)
-  - [Configure your CI build](#configure-your-ci-build)
-  - [Customize the README.md file](#customize-the-readmemd-file)
-  - [Build your module](#build-your-module)
+- [Summary](#summary)
+- [Guide](#guide)
+  - [1. Installation](#1-installation)
+  - [2. Define your shape](#2-define-your-shape)
+  - [3. Define your component](#3-define-your-component)
+- [Tips](#tips)
+  - [It's a pain getting the SVG path](#its-a-pain-getting-the-svg-path)
+  - [It's still too low level](#its-still-too-low-level)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
