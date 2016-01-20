@@ -1,7 +1,7 @@
 {
   "name": "react-morphine",
   "description": "Relieving the pain of morphing UIs.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
