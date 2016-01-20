@@ -2,6 +2,9 @@
 Relieving the pain of morphing UIs in React.
 
 [![Travis-CI](https://travis-ci.org/mmmoli/react-morphine.svg)](https://travis-ci.org/mmmoli/react-morphine)
+
+![React-morphine demo](./docs/demo.gif?raw=true)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
