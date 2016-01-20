@@ -2,9 +2,6 @@
 Relieving the pain of morphing UIs in React.
 
 [![Travis-CI](https://travis-ci.org/mmmoli/react-morphine.svg)](https://travis-ci.org/mmmoli/react-morphine)
-
-An npm `scripts` boilerplate for modules intended for production.
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
@@ -20,83 +17,107 @@ An npm `scripts` boilerplate for modules intended for production.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Features
+## Summary
 
-* ES6 with Babel
-* Lint with ESLint
-* Tape tests with coverage report
-* Dependency security audits with nsp
-* Ensure dependencies are properly declared in package.json
-* Git precommit hook enforces quality checks on commit
-* Travis CI integration
+React-morphine uses React-motion and SVG to help you draw shapes which can _morph_. More precisely, it allows you to 
+reposition points within the SVG Path definition. 
 
+## Guide
+Just a quick guide for now. I'll write-up a better description soon. For now, follow the guide below and check out 
+the example.
 
-## Getting Started
+### 1. Installation
 
-### Clone the repo
+React-morphine is available on npm or bower:
 
-In a bash terminal:
+    npm install react-mophine --save
+    bower install react-mophine
+    
+### 2. Define your shape
+    
+Use whatever drawing package you want. I used Sketch.
+    
+Warning: it helps to tidy-up SVGs first so that you don't go insane later on. Here's some great tips I found:
 
-```
-git clone git@github.com:cloverfield-tools/prod-module-boilerplate.git <your-new-repo-name>
-cd <your-repo-name>
-rm -rf <.git> # strip the boilerplate .git config
-git init # create your own .git config
-git add .
-git commit -m 'Initial commit'
-```
+- [Optimising SVGs for the Web – part 1](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-1-67e8f2d4035#.9piykd6bb)
+- [Optimising SVGs for the Web – part 2](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-2-6711cc15df46#.7mm9uzb86)
 
-### Customize package.json
+The key is to note the `d` attribute of the `path` node. you're going to use this to describe how the path changes 
+using React-motions spring mechanics. 
 
-Open up `package.json`. At minimum, you'll need to customize the `name`, `description`, & `version` fields.
+### 3. Define your component
 
-
-### Configure your CI build
-
-This package comes with a `.travis.yml` file. You'll need to replace it with your own build config. If you want to continue using TravisCI and you don't see any problems with the config, replacing `.travis.yml` is optional. You still need to activate [Travis CI for your repository](http://docs.travis-ci.com/user/getting-started/).
-
-
-### Customize the README.md file
-
-Pop open README.md. Find this text:
+See [example Card component](example/Card.js) but in summary:
 
 ```
-[![Travis-CI](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate.svg)](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate)
+class Card extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHovering: false
+    };
+  }
+
+  onEnter() {
+    this.setState({
+      isHovering: true
+    });
+  }
+
+  onLeave() {
+    this.setState({
+      isHovering: false
+    });
+  }
+
+  render() {
+    const {isHovering} = this.state;
+
+    const destination = isHovering ? SECONDARY : DEFAULT;
+
+    return (
+      <div className="Card"
+           onMouseEnter={this.onEnter.bind(this)}
+           onMouseLeave={this.onLeave.bind(this)}>
+        <SVGPath defaultStyle={ DEFAULT }
+                 style={{
+                   tr: spring(destination.tr, presets.wobbly),
+                   tl: spring(destination.tl, presets.wobbly)
+                 }}
+                 width={500}
+                 height={300}
+                 path={(delta) => `M0,${delta.tl} L220,${delta.tr} L220,300 L0,300 Z`}/>
+      </div>
+    );
+  }
+}
 ```
 
-And replace it with your info:
+See the `path` prop passed to the `SVGPath` component? It's a function that defines how the path changes based on the
+ spring values by returning a string.
+ 
+ The `path` prop function is passed a single argument that describes the current state of all the springs. You can 
+ define as many parameters as you want off the back of it. I defined `tr` and `tl` to represent the rightmost and 
+ leftmost points of the SVG definition.  
 
-```
-[![Travis-CI](https://travis-ci.org/<your-github-name>/<your-github-repo-name>.svg)](https://travis-ci.org/<your-github-name>/<your-github-repo-name>)
-```
+## Tips
 
-You'll probably also want to replace the content of "Getting Started" & "Features", and ensure that you're refering to the correct repository in the "Contributing" document.
+### It's a pain getting the SVG path
 
+Tell me about it. The SVG spec is pretty straightforward but just play around with your `path` prop until it draws 
+what you're expecting.
 
-### Build your module
+I found it useful to return a constant string (ignoring the `delta` param) until I need which point I wanted to change.
 
-1. For production
+Would be great to have tools to help us with this in the future. Bear with us.
 
-  ```sh
-  npm run build
-  ```
+### It's still too low level
 
-  It will run webpack once building full and minified versions of your library in `./build` with sourcemaps.
-
-
-2. For development
-
-  ```sh
-  npm start
-  ```
-
-  This will run the `webpack` build in watch mode and will include ESLint checks on compile time.
-
-  ![webpack](https://cloud.githubusercontent.com/assets/175264/8304834/d66f7944-19ec-11e5-9feb-9f66caa5c593.gif)
-
-  **Note** minified version will not be built in dev mode.
+I know what you mean. I like the power we have with this API, but I'm thinking of ways which are slightly more how 
+designers think. 
 
 ## Contributing
 
 - [Contributing](docs/contributing/index.md)
-  - [Versions: Release Names vs Version Numbers](docs/contributing/versions/index.md)
+- [Versions: Release Names vs Version Numbers](docs/contributing/versions/index.md)
