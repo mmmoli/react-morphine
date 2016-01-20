@@ -1,12 +1,12 @@
 {
   "name": "react-morphine",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/mmmoli/react-morphine",
   "authors": [
-    "Michele Memoli <michele@100shapes.com>"
+    "Michele Memoli <michele@100shapes.com> (http://100shapes.com)"
   ],
   "description": "Relieving the pain of morphing UIs",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "keywords": [
     "react",
     "react-motion",
@@ -20,6 +20,11 @@
     "animation",
     "transition",
     "ui"
+  ],
+  "files": [
+    "build",
+    "lib",
+    "source"
   ],
   "license": "MIT",
   "ignore": [

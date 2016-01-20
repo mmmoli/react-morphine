@@ -1,13 +1,13 @@
 {
   "name": "react-morphine",
   "description": "Relieving the pain of morphing UIs.",
-  "version": "0.1.1",
-  "main": "lib/index.js",
+  "version": "0.1.2",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/mmmoli/react-morphine.git"
   },
-  "author": "Michele Memoli <michele@100shapes.com>",
+  "author": "Michele Memoli <michele@100shapes.com> (http://100shapes.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mmmoli/react-morphine/issues"
@@ -32,8 +32,10 @@
     "clean": "rimraf build && rimraf lib",
     "lint": "eslint source test",
     "prebuild": "npm run clean",
-    "build": "npm run build:min && npm run build:doc",
-    "build:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js && ./node_modules/.bin/babel source --out-dir lib",
+    "build": "npm run build:umd && npm run build:umd:min && npm run build:lib && npm run build:doc",
+    "build:lib": "babel source --out-dir lib",
+    "build:umd": "NODE_ENV=production webpack --config webpack.prod.config.js",
+    "build:umd:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js",
     "build:doc": "doctoc --github --title \"## Contents\" ./",
     "start": "NODE_ENV=development webpack --watch",
     "test": "babel-node test/index.js | faucet",
@@ -49,6 +51,11 @@
   },
   "pre-commit": [
     "lint"
+  ],
+  "files": [
+    "build",
+    "lib",
+    "source"
   ],
   "devDependencies": {
     "babel": "^5.8.21",

@@ -22,6 +22,7 @@ module.exports = {
   },
 
   externals: [{
+    'react-motion': 'react-motion',
     react: {
       root: 'React',
       commonjs2: 'react',
