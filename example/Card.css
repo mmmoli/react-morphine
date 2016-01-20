@@ -1,8 +1,21 @@
+body {
+    background-color: #FFD605;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
 
 .Card {
     display: flex;
     position: relative;
-    background-color: white;
+    background-color: #215CFF;
     border-radius: 5px;
     width: 350px;
     height: 70vh;
@@ -22,5 +35,5 @@
 }
 
 .Card svg path {
-    fill: #ededed;
+    fill: #0038CC;
 }
