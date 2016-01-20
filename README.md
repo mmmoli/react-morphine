@@ -7,6 +7,7 @@ Relieving the pain of morphing UIs in React.
 ## Contents
 
 - [Summary](#summary)
+- [Description](#description)
 - [Guide](#guide)
   - [1. Installation](#1-installation)
   - [2. Define your shape](#2-define-your-shape)
