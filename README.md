@@ -1,7 +1,8 @@
 # react-morphine
 Relieving the pain of morphing UIs in React.
 
-[![Travis-CI](https://travis-ci.org/mmmoli/react-morphine.svg)](https://travis-ci.org/mmmoli/react-morphine)
+[![Travis](https://img.shields.io/travis/mmmoli/react-morphine.svg?style=flat-square)](https://travis-ci.org/mmmoli/react-morphine)
+[![npm](https://img.shields.io/npm/v/react-morphine.svg?style=flat-square)](https://www.npmjs.com/package/react-morphine)
 
 ![React-morphine demo](./docs/demo.gif?raw=true)
 
@@ -26,10 +27,12 @@ Relieving the pain of morphing UIs in React.
 
 React-morphine uses React-motion and SVG to help you draw shapes which can _morph_. More precisely, it allows you to 
 reposition points within the SVG Path definition.
+
+Thoughts? [Tweet me](http://twitter.com/share?text=%23react-morphine%20@mm0li)
  
 ## Description
 
-React-morpphine defines an SVGPath component class which has a series of required props to making a morphine UI. It's
+React-morphine defines an SVGPath component class which has a series of required props to making a morphine UI. It's
  designed to be used to draw a shape using an SVG `path`. However, the trick is that instead of defining the path as 
  a static string, we define it as a function that takes a parameter of the current spring state.
  
@@ -38,7 +41,7 @@ React-morpphine defines an SVGPath component class which has a series of require
  All you have to do create the states you want to animate between, define the shape using a function and the library 
  does the rest.
  
- See [detailed Card example](example/Card.js).
+ See [example Card component](example/Card.js) and [live demo](http://mmmoli.github.io/react-morphine/).
 
 ## Guide
 Just a quick guide for now. I'll write-up a better description soon. For now, follow the guide below and check out 
