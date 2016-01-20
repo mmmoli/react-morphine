@@ -33,3 +33,4 @@ build
 .idea
 .DS_Store
 example/bundle.js
+lib

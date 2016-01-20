@@ -2,7 +2,7 @@
   "name": "react-morphine",
   "description": "Relieving the pain of morphing UIs.",
   "version": "0.1.0",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/mmmoli/react-morphine.git"
@@ -29,11 +29,11 @@
   ],
   "scripts": {
     "init": "rimraf .validate.json && rimraf .jshintrc",
-    "clean": "rimraf build",
+    "clean": "rimraf build && rimraf lib",
     "lint": "eslint source test",
     "prebuild": "npm run clean",
     "build": "npm run build:min && npm run build:doc",
-    "build:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js",
+    "build:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js && ./node_modules/.bin/babel source --out-dir lib",
     "build:doc": "doctoc --github --title \"## Contents\" ./",
     "start": "NODE_ENV=development webpack --watch",
     "test": "babel-node test/index.js | faucet",

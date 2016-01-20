@@ -21,6 +21,15 @@ module.exports = {
     lib:'./source/index.js'
   },
 
+  externals: [{
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    }
+  }],
+
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: 'build/',
