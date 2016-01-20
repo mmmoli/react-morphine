@@ -9,5 +9,9 @@ cache:
 node_js:
   - "5"
 
+branches:
+  only:
+    - master
+
 script:
   - npm run check
