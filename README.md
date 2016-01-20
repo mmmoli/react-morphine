@@ -21,7 +21,20 @@ Relieving the pain of morphing UIs in React.
 ## Summary
 
 React-morphine uses React-motion and SVG to help you draw shapes which can _morph_. More precisely, it allows you to 
-reposition points within the SVG Path definition. 
+reposition points within the SVG Path definition.
+ 
+## Description
+
+React-morpphine defines an SVGPath component class which has a series of required props to making a morphine UI. It's
+ designed to be used to draw a shape using an SVG `path`. However, the trick is that instead of defining the path as 
+ a static string, we define it as a function that takes a parameter of the current spring state.
+ 
+ Think of it as React-motion's `interpolatedValues` but applied to a shape definition.
+ 
+ All you have to do create the states you want to animate between, define the shape using a function and the library 
+ does the rest.
+ 
+ See [detailed Card example](example/Card.js).
 
 ## Guide
 Just a quick guide for now. I'll write-up a better description soon. For now, follow the guide below and check out 
@@ -38,10 +51,10 @@ React-morphine is available on npm or bower:
     
 Use whatever drawing package you want. I used Sketch.
     
-Warning: it helps to tidy-up SVGs first so that you don't go insane later on. Here's some great tips I found:
+Warning: it helps to tidy-up SVGs first so that you don't go insane later on.
 
-- [Optimising SVGs for the Web – part 1](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-1-67e8f2d4035#.9piykd6bb)
-- [Optimising SVGs for the Web – part 2](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-2-6711cc15df46#.7mm9uzb86)
+Here's some great tips I found:
+[Optimising SVGs for the Web – part 1](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-1-67e8f2d4035#.9piykd6bb) & [part 2](https://medium.com/@larsenwork/optimising-svgs-for-web-use-part-2-6711cc15df46#.7mm9uzb86)
 
 The key is to note the `d` attribute of the `path` node. you're going to use this to describe how the path changes 
 using React-motions spring mechanics. 
