@@ -6,7 +6,13 @@
     "Michele Memoli <michele@100shapes.com> (http://100shapes.com)"
   ],
   "description": "Relieving the pain of morphing UIs",
-  "main": "./lib/index.js",
+  "main": [
+    "build/react-morphine.min.js",
+    "build/react-morphine.map"
+  ],
+  "dependencies": {
+    "react": ">=0.13.2 || ^0.14"
+  },
   "keywords": [
     "react",
     "react-motion",
@@ -21,17 +27,18 @@
     "transition",
     "ui"
   ],
-  "files": [
-    "build",
-    "lib",
-    "source"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
+    "coverage",
+    "example",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "src",
+    "package.json",
+    "webpack.config.js",
+    "webpack.prod.config.js"
   ]
 }
