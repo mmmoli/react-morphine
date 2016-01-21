@@ -32,7 +32,7 @@
     "clean": "rimraf build && rimraf lib",
     "lint": "eslint source test",
     "prebuild": "npm run clean",
-    "build": "npm run build:umd && npm run build:umd:min && npm run build:lib && npm run build:doc && npm run build:example",
+    "build": "npm run build:umd && npm run build:umd:min && npm run build:lib && npm run build:doc",
     "build:lib": "babel source --out-dir lib",
     "build:umd": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "build:umd:min": "NODE_ENV=production MINIFY=1 webpack --config webpack.prod.config.js",
