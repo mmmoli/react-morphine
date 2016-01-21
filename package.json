@@ -44,7 +44,7 @@
     "cov:clean": "rimraf coverage",
     "cov:generate": "babel-node node_modules/.bin/isparta cover --report text --report html test/index.js",
     "prepublish": "npm run build",
-    "validate": "npm run lint && npm run build && npm test",
+    "validate": "npm run lint && npm test",
     "validate-dev": "npm run lint && npm run build && npm test | faucet",
     "audit": "nsp check",
     "precheck": "npm run validate",
@@ -77,10 +77,12 @@
     "nsp": "^2.2.0",
     "precommit-hook": "^3.0.0",
     "react-addons-test-utils": "^0.14.6",
-    "react-dom": "^0.14.6",
     "rimraf": "^2.4.2",
     "style-loader": "^0.13.0",
-    "webpack": "^1.11.0"
+    "webpack": "^1.11.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-motion": "^0.3.1"
   },
   "peerDependencies": {
     "react": ">=0.13.2 || ^0.14",
